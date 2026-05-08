@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formula 1 Stats</title>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Stats</h2>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="#" class="menu-item active" data-section="pontuacao">
+                <span>Pontuação</span>
+            </a>
+            <a href="#" class="menu-item" data-section="calendario">
+                <span>Calendário</span>
+            </a>
+            <a href="#" class="menu-item" data-section="equipes">
+                <span>Equipes</span>
+            </a>
+            <a href="#" class="menu-item" data-section="pilotos">
+                <span>Pilotos</span>
+            </a>
+            <a href="#" class="menu-item" data-section="gpsPassados">
+                <span>GPS Passados</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="main-header">
+           
+            <h1 id="page-title">Pontuação</h1>
+            <div class="user-info">
+                <span>User</span>
+                <div class="avatar">U</div>
+            </div>
+        </header>
+
+        
+        <section class="page-section active" id="section-pontuacao">
+            <div class="card">Conteúdo Pontuação</div>
+        </section>
+
+        <section class="page-section" id="section-calendario">
+            <div class="card">Calendário</div>
+        </section>
+
+        <section class="page-section" id="section-equipes">
+            <div class="card">Equipes</div>
+        </section>
+
+       
+        <section class="page-section" id="section-pilotos">
+            <div class="card">Pilotos</div>
+        </section>
+
+       
+        <section class="page-section" id="section-gpsPassados">
+            <div class="card">GPS Passados</div>
+        </section>
+    </main>
+
+    <script>
+        const menuItems = document.querySelectorAll('.menu-item');
+        const sections = document.querySelectorAll('.page-section');
+        const pageTitle = document.getElementById('page-title'); 
+
+        const titles = {
+            pontuacao: 'Pontuação', 
+            calendario: 'Calendário',
+            equipes: 'Equipes',
+            pilotos: 'Pilotos',
+            gpsPassados: 'GPS Passados'
+        };
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSection = item.dataset.section;
+
+                
+                menuItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+
+                sections.forEach(section => section.classList.remove('active'));
+
+                
+                document.getElementById(`section-${targetSection}`).classList.add('active');
+
+                pageTitle.textContent = titles[targetSection];
+            });
+        });
+    </script>
+</body>
+</html>
