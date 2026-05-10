@@ -20,7 +20,7 @@ def getConstrutores():
     response = requests.get(f"{url}/2026/constructors.json")
     data = response.json()
     constructors = data["MRData"]["ConstructorTable"]["Constructors"]
-
+    
 
     equipes = []
 
@@ -82,7 +82,7 @@ def getCorridas():
             "data":corrida.get("date"),
             "treinolivre1":treino1.get("date", "Inexistente"),
             "treinolivre2":treino2.get("date", "Corrida com Sprint, sem treino livre 2"),
-            "treinolivre3":treino3.get("date", "Corrida com Sprint, sem treino livre 3"),
+            "treinolivre3":treino3.get("date", "Corrida com Sprint, sem treino livre "),
             "sprint":sprint.get("date", "Corrida sem Sprint",),
             "classificacaoSprint":qualySprint.get("date", "Corrida sem Sprint"),
             "classificacao":corrida.get("Qualifying", {}).get("date")
